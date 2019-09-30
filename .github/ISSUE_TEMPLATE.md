@@ -19,5 +19,8 @@ Make sure a directory is created under the corresponding domain folder properly 
 #### Note
 Please claim the issue first by commenting here before starting to work on it.
 
+#### For co-ordinators/maintainers creating the issues
+Please mention yourself as the point of contact so that the person submitting the PR can request review from you.
+
 <!-- Delete all the unnecessary / inapplicable text from the template -->
 
