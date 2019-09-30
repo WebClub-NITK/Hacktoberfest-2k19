@@ -1,0 +1,5 @@
+Name: Quang Duy
+Gender : Male
+Year: 3rd Year
+Branch: Computer Science
+Favourite Languages: Python, Golang, JavaScript
