@@ -13,12 +13,12 @@ All members of our community are expected to follow our [Code of Conduct](CODE_O
 - Clone the forked repository to your system.
 - Make the relevant changes according to the issue description and make sure you follow the directory structure mentioned there.
 - Commit and push the changes to your forked repository.
-- Make a Pull Request to the [Hacktoberfest-2k19](https://github.com/WebClub-NITK/Hacktoberfest-2k19) repository. Please stick to the Pull Request template provided.
+- Make a Pull Request to the [Hacktoberfest-2k19](https://github.com/WebClub-NITK/Hacktoberfest-2k19) repository. Please stick to the [Pull Request template](PULL_REQUEST_TEMPLATE.md) provided.
 - Follow up on any changes requested and wait for it to be approved.
 - You're done. Thanks for the contribution. Keep contributing :)
 
 ### Making new issues
 If you would like to work on an issue which is not currently present, you can do so by:
-- You can go ahead and create an issue on the repository by following the Issue template provided.
+- You can go ahead and create an issue on the repository by following the [Issue template](ISSUE_TEMPLATE.md) provided.
 - The issue will then be assigned to you. You can start working on it.
 
