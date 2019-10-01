@@ -1,6 +1,6 @@
-// C++ implementation of Radix Sort 
-#include<iostream> 
-using namespace std; 
+// C implementation of Radix Sort 
+#include<stdio.h> 
+
 
 // A utility function to get maximum value in arr[] 
 int getMax(int arr[], int n) 
@@ -17,8 +17,9 @@ int getMax(int arr[], int n)
 void countSort(int arr[], int n, int exp) 
 { 
 	int output[n]; // output array 
-	int i, count[10] = {0}; 
-
+	int i, count[10]; 
+	for (i = 0; i < 10; i++)
+		count[i] = 0;
 	// Store count of occurrences in count[] 
 	for (i = 0; i < n; i++) 
 		count[ (arr[i]/exp)%10 ]++; 
@@ -59,7 +60,7 @@ void radixsort(int arr[], int n)
 void print(int arr[], int n) 
 { 
 	for (int i = 0; i < n; i++) 
-		cout << arr[i] << " "; 
+		printf("%d ",arr[i]); 
 } 
 
 // Driver program to test above functions 
