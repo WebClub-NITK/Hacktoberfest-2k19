@@ -2,3 +2,8 @@
 *#
 *~
 *.o
+.idea/
+venv/
+.gradle/
+*.iml
+build/
