@@ -20,5 +20,5 @@ int main (void){
     for (j=i-1;j>=0;j--){
         printf("%d",binary[j]);
 
-    }
+    }return 0;
 }
