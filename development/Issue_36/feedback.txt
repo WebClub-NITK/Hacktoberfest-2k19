@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Feedback</title>
+	</head>
+	<body>
+		<h2>Site feedback</h2>
+		<form action="/">
+  			First name:
+  			<input type="text">
+  			Last name:
+  			<input type="text">
+  			<br><br>
+  			Phone number:
+  			<input type="text">
+  			<br>
+  			Mail id:
+  			<input type="text">
+  			<br>
+  			Comments:
+  			<input type="text">
+  			<br>
+ 			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>
