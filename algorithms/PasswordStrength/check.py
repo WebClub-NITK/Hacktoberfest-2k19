@@ -7,10 +7,6 @@ CONDITIONS = {
     "lowercase" :(1,"The password should contain at least a lower case letter."),
     "uppercase" :(1,"The password should contain at least an upper case letter."),
 }
-str = "abc"
-print(ord(str[0]))
-print(ord(str[0 + 1 % len(str)]) - 1)
-print(ord(str[0 + 2 % len(str)]) - 2)
 print('Enter the password:')
 pwd = input()
 if len(pwd) in range(7,32):
