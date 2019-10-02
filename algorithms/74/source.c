@@ -1,58 +1,57 @@
 #include <stdio.h>
+#define loop(i,a,b) for(int i=a;i<b;i++)
 
 // the input array to be sorted
-int arr[100];
+int arr[10000];
 // the array used to store the temporary results in the function
-int temp[100];
+int temp[10000];
 
-void merge_sort(int start_index, int end_index)
+
+//the function to merge the two arrays
+void merge(int a[],int l[],int r[],int leftlen,int rightlen)
 {
-	int mid = (start_index + end_index) / 2;
+    int i=0,j=0,k=0;
+    while((i<leftlen) && (j<rightlen))
+    {
+        if(l[i]<r[j])
+        {
+            a[k]=l[i];
+            i++;
+        }
+        else
+        {
+            a[k]=r[j];
+            j++;        
+        }
+        k++;
+    }
+    while(i<leftlen)
+    {
+        a[k]=l[i];i++;k++;
+    }
+    while(j<rightlen)
+    {
+        a[k]=r[j];j++;k++;
+    }
+}
 
-	// sort the left half and the right half of the array
-	merge_sort(start_index, mid);
-	merge_sort(mid + 1, end_index);
 
-	// compare the two sorted arrays using first element and merge them into temp
-	int curr_left_index = start_index;
-	int curr_right_index = mid + 1;
-	int curr_index = start_index;
-	while (curr_left_index <= mid && curr_right_index <= end_index)
-	{
-		if (arr[curr_left_index] <= arr[curr_right_index])
-		{
-			temp[curr_index] = arr[curr_left_index];
-			curr_left_index++;
-		}
-		else
-		{
-			temp[curr_index] = arr[curr_right_index];
-			curr_right_index++;
-		}
-		curr_index++;
-	}
+//the function to perform the divide and conquer technique
+void mergersort(int a[],int len)
+{
+    if(len/2)
+    {
+        int leftlen=len/2;
+        int rightlen=len-leftlen;
+        int l[leftlen];int r[rightlen];
 
-	// if all the elements from left array are not used, add them to temp
-	while (curr_left_index <= mid)
-	{
-		temp[curr_index] = arr[curr_left_index];
-		curr_left_index++;
-		curr_index++;
-	}
+        loop(i,0,leftlen)l[i]=a[i];
+        loop(i,0,rightlen)r[i]=a[i+leftlen];
 
-	// if all the elements from right array are not used, add them to temp
-	while (curr_right_index <= end_index)
-	{
-		temp[curr_index] = arr[curr_right_index];
-		curr_right_index++;
-		curr_index++;
-	}
-
-	// copy all the elements from temp to the main array
-	for (int i = start_index; i <= end_index; i++)
-	{
-		arr[i] = temp[i];
-	}
+        mergersort(l,leftlen);
+        mergersort(r,rightlen);
+        merge(a,l,r,leftlen,rightlen);
+    }
 }
 
 int main()
@@ -65,11 +64,12 @@ int main()
 	{
 		scanf("%d", &arr[i]);
 	}
-	merge_sort(0, n - 1);
+	mergersort(arr,n);
 	printf("The array after sorting is:\n");
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", arr[i]);
 	}
+	printf("\n");
 	return 0;
 }
