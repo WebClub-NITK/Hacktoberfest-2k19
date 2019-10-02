@@ -2,7 +2,7 @@
 
 public class primeNumbers {
 	
-	public static void main(int low, int high) {
+	public static int main(int low, int high) {
 		try {
 			for(int i = low; i <= high; ++i) {
 			    boolean prime = true;
@@ -12,7 +12,7 @@ public class primeNumbers {
 			        }
 			    }
 			    if(prime) {
-			        System.out.println(i);
+			        return i;
 			    }
 			}  
 		} catch (Exception e) {
