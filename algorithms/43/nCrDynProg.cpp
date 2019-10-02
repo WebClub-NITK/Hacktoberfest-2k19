@@ -10,7 +10,7 @@ using namespace std;
 
 #define mod 1000000007
 
-int C[1000][1000] = {{ 0 }};
+int C[1001][1001] = {{ 0 }};
 
 int combination(int n, int r) {
     if (r == 0 or r == n) return 1;
@@ -20,8 +20,8 @@ int combination(int n, int r) {
 
 int main() {
     long n, r;
-    while (cin >> n >> r, n || r) {
-    /* This loop reads a pair (n, r) from STDIN until (0, 0) is encountered
+    while (cin >> n >> r, n != -1 || r != -1) {
+    /* This loop reads a pair (n, r) from STDIN until (-1, -1) is encountered
      * and prints nCr
      */
 	cout << combination(n, r) << '\n';
