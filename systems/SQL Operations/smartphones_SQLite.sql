@@ -31,4 +31,4 @@ select * from [smartphone_details] where price < 60000;
 select * from [smartphone_details] where release_date >= '2018-03-01' and release_date < '2018-12-31';
 
 -- Task3
-select * from [smartphone_details] where release_date > '2019-01-01' order by price limit 2
+select * from [smartphone_details] where release_date > '2019-01-01' order by price limit 2;
