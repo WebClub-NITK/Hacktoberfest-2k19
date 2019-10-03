@@ -13,14 +13,13 @@ cin>>password;
 for(i=0;password[i]!='\0';i++)
 {
 
-//if(flag1)
 if(isupper(password[i]))
 {
 flag1=0;
 countdigit=0;
 countupper++;
 countlower=0;
-if(countupper==3)
+if(countupper==4)
         cu=1;
 }
 
@@ -30,7 +29,7 @@ flag2=0;
 countdigit=0;
 countupper=0;
 countlower++;
-if(countlower==3)
+if(countlower==4)
         cl=1;
 }
 
@@ -40,7 +39,7 @@ flag3=0;
 countdigit++;
 countupper=0;
 countlower=0;
-if(countdigit==3)
+if(countdigit==4)
         cd=1;
 }
 
