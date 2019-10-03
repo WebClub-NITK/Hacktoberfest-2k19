@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>NITK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .name {
+      margin-top:10px;
+    }
+
+    input[type="submit"] {
+      margin-top:69px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="heading">Enter your information</h1>
+  <div>
+    <form action="{% url 'register' %}" method="POST">
+      {% csrf_token %}
+      <div class="name">First Name:
+        <input type="text" name="first_name" autofocus autocomplete="off" />
+      </div>
+      <div class="name">Last Name:
+        <input type="text" name="last_name" autocomplete="off" />
+      </div>
+      <!-- <br /> -->
+      <div class="name">Father's Name:
+        <input type="text" name="fathe_name" autocomplete="off" />
+      </div>
+      <!-- <br /> -->
+      <div class="name">JEE main AIR:
+        <input type="number" name="AIR" autocomplete="off" />
+      </div>
+      <!-- <br /> -->
+      <div class="name">Course:
+        <select name="course">
+          <ol>
+            <li><option value="CS" />Computer Science</li>
+            <li><option value="EC" />Electronics and Communication</li>
+            <li><option value="EE" />Electrical Engineering</li>
+            <li><option value="MECH" />Royal Mech</li>
+            <li><option value="META" />Metallurgical and Material Science</li>
+            <li><option value="CIVIL" />Civil Engineerging</li>
+          </ol>
+        </select>
+      </div>
+      <!-- <br /> -->
+      <input type="submit" value="Register" />
+    </form>
+  </div>
+</body>
+
+</html>
