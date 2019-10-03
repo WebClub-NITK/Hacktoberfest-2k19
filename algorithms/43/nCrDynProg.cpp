@@ -1,4 +1,6 @@
-#include<bits/stdc++.h> 
+#include<iostream>
+#include<cstring>
+
 using namespace std; 
   
 int nCrModp(int n, int r, int p) 
