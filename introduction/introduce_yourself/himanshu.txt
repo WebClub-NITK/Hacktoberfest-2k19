@@ -1,3 +1,5 @@
-Name: Himanshu Kumar
-Dept: CSE 
-Year: 1st year 
+Name : Himanshu Singh
+Batch :1st Year
+Course :MCA
+Department :MACS
+Hobbies :Playing PC Games
