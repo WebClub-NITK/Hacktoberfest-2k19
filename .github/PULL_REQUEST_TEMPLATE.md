@@ -17,4 +17,4 @@ Please list all the steps required to run in details. Preferably specify steps f
 - [ ] Followed the Contributing guidelines.
 - [ ] Resolved merge conflicts, if any.
 
-
+<!-- Delete all the unnecessary / inapplicable text from the template -->
