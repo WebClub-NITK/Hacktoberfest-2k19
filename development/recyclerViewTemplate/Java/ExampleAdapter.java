@@ -16,9 +16,7 @@ import java.util.List;
 
 public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> implements Filterable {
     private List<ExampleItem> mExampleList;
-    private List<ExampleItem> exampleListFull;
-
-
+    
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
         public ImageView mImageView;
         public TextView mTextView1;
@@ -30,11 +28,6 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
             mTextView1 = itemView.findViewById(R.id.textView1);
             mTextView2 = itemView.findViewById(R.id.textView2);
         }
-    }
-
-    ExampleAdapter(ArrayList<ExampleItem> exampleList) {
-        mExampleList = exampleList;
-        exampleListFull = new ArrayList<>(exampleList);
     }
 
     @NonNull
@@ -59,43 +52,6 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
     }
 
     void removeAt(int position) {
-//        return mExampleList.get(position);
-//        mExampleList.remove(position);
-//        notifyItemRemoved(position);
-//        notifyItemRangeChanged(position, mExampleList.size());
-
     }
-
-    @Override
-    public Filter getFilter() {
-        return exampleFilter;
-    }
-
-    private Filter exampleFilter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence charSequence) {
-            List<ExampleItem> filteredList = new ArrayList<>();
-            if (charSequence == null || charSequence.length() == 0) {
-                filteredList.addAll(exampleListFull);
-            } else {
-                String filterPattern = charSequence.toString().toLowerCase().trim();
-                for (ExampleItem item : exampleListFull) {
-                    if (item.getmText1().toLowerCase().contains(filterPattern) || item.getmText2().toLowerCase().contains(filterPattern)) {
-                        filteredList.add(item);
-                    }
-                }
-            }
-            FilterResults results = new FilterResults();
-            results.values = filteredList;
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-            mExampleList.clear();
-            mExampleList.addAll((List) filterResults.values);
-            notifyDataSetChanged();
-        }
-    };
 
 }
