@@ -1,8 +1,9 @@
-int pairs(int arr[],int num)
-{	int count=0;
-	for(int i=0;arr[i]!='\0';++i)
-	for(int j=0;arr[j]!='\0';++j)
-		if(arr[i]+arr[j]==num)
-			++count;
-	return count;
+int Number_of_pairs(int *a,int n,int x)
+{
+      int i,j,count=0;
+        for(i=0;i<n;++i)
+        for(j=i+1;j<n;++j)
+                if(a[i]+a[j]==x)
+                        ++count;
+        return count;
 }
