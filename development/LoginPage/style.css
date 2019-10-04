@@ -29,11 +29,15 @@ input[type="password"] {
   margin-top:10px;
 }
 
-input {
+input, #error {
   margin-left:25%;
   margin-top: 10px;
 }
 
 h1{
   margin-left:25%;
+}
+
+#error {
+	color: red;
 }
