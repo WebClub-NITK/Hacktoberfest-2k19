@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  if (!localStorage.getItem('count'))
-                localStorage.setItem('count', 0);
-  let count = localStorage.getItem('count');
+  let count = 0;
 
   document.querySelector('#submit').onclick = () => {
 
@@ -10,16 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const password = document.querySelector('#password').value;
 
     if ( username == "aditya" && password == "aditya1234") {
-      localStorage.setItem('count', 0);
+      documen.querySelector('#error').innerHTML = "";
       alert(`Successfully validated ${username}`);
       window.location = "success.html";
     }
     else {
+      document.querySelector('#error').innerHTML = "invalid credentials";
       count++;
       validate();
     }
+
     function validate() {
-      localStorage.setItem('count', count);
       if( count == 5) {
         alert('You have only 5 more attempts remaining');
       }
@@ -27,5 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Sorry You took so many login attempts');
       }
     };
+
   };
 });
