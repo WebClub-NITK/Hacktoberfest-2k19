@@ -23,12 +23,12 @@ while((c = getchar()) != '\n'){
    name[count++] = c;
 
 }
-char dem[20];
+char dem[256];
 printf("Enter Delimiters \n");
 gets(dem);
 char * pch;
   printf ("Splitting string \"%s\" into tokens:\n",name);
-  pch = strtok (name,"dem");
+  pch = strtok (name,dem);
   while (pch != NULL)
   {
     printf ("%s\n",pch);
