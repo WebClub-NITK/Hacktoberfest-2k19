@@ -17,7 +17,7 @@ int main()
 { 
    int x,y,p;
    printf("enter value of a,b and m : \n");
-   scanf("%u%u%u",&x,&y,&p;
+   scanf("%u%u%u",&x,&y,&p);
    printf("value is %u", func(x, y, p)); 
    return 0; 
 } 
