@@ -23,15 +23,40 @@ while((c = getchar()) != '\n'){
    name[count++] = c;
 
 }
-char dem[256];
+int len=strlen(name);
 printf("Enter Delimiters \n");
+char dem[256];
 gets(dem);
-char * pch;
-  printf ("Splitting string \"%s\" into tokens:\n",name);
-  pch = strtok (name,dem);
-  while (pch != NULL)
-  {
-    printf ("%s\n",pch);
-    pch = strtok (NULL, dem);
-  }
+int len2=strlen(dem);
+char copy[len];
+strcpy(copy,name);
+int flag=0;
+int d=0,b=0;
+char outp[50][100];
+for(int i=0;i<len;i++)
+{
+    flag=0;
+    for(int j=0;j<len2;j++)
+    {
+        if(copy[i]==dem[j]) 
+        {
+           flag=1;
+         }
+         
+         
+    }
+    if(flag==0){
+        outp[d][b]=copy[i];
+           b++;
+    }
+    if(flag==1) {
+        d++;
+        b=0;
+    }
+}
+for(int i=0;i<=d;i++)
+{
+   printf("%s \n",outp[i]);
+}
+
 }
