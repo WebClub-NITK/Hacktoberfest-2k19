@@ -1,10 +1,12 @@
 #include<stdio.h>
 int Number_of_pairs(int *a,int n,int x)
 {
- /*
-   Write your code here
-   Here *a is the pointer to the array,n is its number of elementsand x is the corrosponding sum.
- */
+      int i,j,count=0;
+        for(i=0;i<n;++i)
+        for(j=i+1;j<n;++j)
+                if(a[i]+a[j]==x)
+                        ++count;
+        return count;
 }
 int main()
 {
