@@ -1,0 +1,10 @@
+gcc server.c -o server
+./server
+
+open another terminal
+
+gcc client.c -o client
+./client localhost
+
+
+
