@@ -1,0 +1,39 @@
+<html>
+<head>
+<script>
+     function validateForm() {
+           var check;
+           check=validate();
+           check=validateEmail();
+           return check; 
+        }
+function validate(){
+        var regEx= /^([+]{1}[0-9]{2}[1-9]{1}[0-9]{9})$/;
+        if (regEx.test(document.forms["myForm"]["mobile"].value) == false) 
+        {
+            alert('Invalid Mobile number format');
+            return false;
+        }
+        return true;
+}
+
+function validateEmail(){
+    var regEx= /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    if(regEx.test(document.forms["myForm"]["mobile"].value) == false){
+        alert('Invalid Email format');
+        return false;
+    }
+    return true;
+}
+</script>
+</head>
+<body>
+
+<form name="myForm" action="/action_page.php"  onsubmit="validateForm()" method="post">
+  Mobile: <input type="text" name="mobile" required><br>
+  Email: <input type="email" name="mail"  required><br>
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
