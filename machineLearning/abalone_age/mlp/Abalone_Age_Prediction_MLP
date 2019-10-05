@@ -1,0 +1,3 @@
+Abalone Age Prediction Using MLP. 
+Used 8 Hidden Units with Adam Optimizer 
+Used K Fold Cross Validation
