@@ -6,9 +6,15 @@ using namespace std;
 int main() {
 
   int i, keylen, j = 0;
-  char en, dec, ch;
+  char en, dec, ch,choice;
   string text, key, deci, enci;
 
+  cout << "Enter 'E' for encryption of a given text : \n";
+  cout << "Enter 'D' for decryption of a given text : \n";
+  cin>>choice;
+  switch(choice) 
+{
+case 'E':
   cout << "Enter the key used for encryption : \n";
   cin >> key;
 
@@ -38,8 +44,20 @@ int main() {
   }
 
   cout << "Encrypted Text : " << text << "\n";
+  
+break;
 
-  j = 0;
+  case 'D':
+
+cout << "Enter the key used for decryption : \n";
+  cin >> key;
+
+  cin.ignore();
+
+  cout << "Enter the text for decryption : \n";
+  getline(cin, text);
+
+  keylen = key.length();
 
   for (i = 0; text[i] != '\0'; i++) {
     if (isupper(text[i])) {
@@ -59,6 +77,10 @@ int main() {
   }
 
   cout << "Decrypted Text : " << text << "\n";
+
+break;
+
+}
 
   return 0;
 }
