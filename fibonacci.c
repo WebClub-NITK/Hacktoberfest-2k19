@@ -3,15 +3,16 @@
 
 int main()
 {
-int n;
-scanf("%d",&n);
-int arr[n];
+long long int n;
+scanf("%lld",&n);
+long long int arr[n];
 arr[0]=1;
 arr[1]=1;
-for(int i=2;i<=n;i++)
+for(long long int i=2;i<=n;i++)
 {
 arr[i]=arr[i-1]+arr[i-2];
 }
-printf("%d",arr[n]);
+printf("%lld",arr[n]);
+//this will cover larger range than int 
 return 0;
 }	
