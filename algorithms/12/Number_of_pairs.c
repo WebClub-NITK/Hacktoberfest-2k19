@@ -1,10 +1,26 @@
 #include<stdio.h>
 int Number_of_pairs(int *a,int n,int x)
 {
- /*
-   Write your code here
-   Here *a is the pointer to the array,n is its number of elementsand x is the corrosponding sum.
- */
+    int leftCursor = 0;
+    int rightCursor = n-1;
+    int pairs = 0;
+
+    while(leftCursor < rightCursor) {
+        const int leftNumber = a[leftCursor];
+        const int rightNumber = a[rightCursor];
+        const int localSum = leftNumber + rightNumber;
+        if(localSum == x) {
+            pairs++;
+            leftCursor++;
+            rightCursor--;
+        } else if(localSum > x) {
+            rightCursor--;
+        } else {
+            leftCursor++;
+        }
+    }
+
+    return pairs;
 }
 int main()
 {
