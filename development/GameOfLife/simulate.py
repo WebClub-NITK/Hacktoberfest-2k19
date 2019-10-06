@@ -2,12 +2,11 @@ import pygame, sys
 import numpy as np
 from random import randint
 
-ON = 2
-RESTING = 1
+ON = 1
 OFF = 0
 
-class BriansBrain:
-    def __init__(self, width=100, height=100, scale=5):
+class GameOfLife:
+    def __init__(self, width=100, height=100):
         self.width = width
         self.height = height
         self.state_new = np.zeros((height, width))
@@ -46,11 +45,10 @@ class BriansBrain:
         for j in range(self.height):
             for i in range(self.width):
                 cur_state = self.get_state_old(i, j)
-                if cur_state == OFF and (self.num_neighbors_with_state(i, j, ON) == 2):
+                numberOfOnNeighbors = self.num_neighbors_with_state(i,j,ON)
+                if cur_state == OFF and numberOfOnNeighbors == 3:
                     self.set_square_state(i, j, ON)
-                elif cur_state == ON:
-                    self.set_square_state(i, j, RESTING)
-                elif cur_state == RESTING:
+                elif cur_state == ON and (numberOfOnNeighbors < 2 or numberOfOnNeighbors > 3):
                     self.set_square_state(i, j, OFF)
 
 
@@ -61,19 +59,18 @@ def main():
 
     black = (0, 0, 0)
     white = (255, 255, 255)
-    grey = (110, 110, 170)
 
     screen = pygame.display.set_mode(size)
 
-    brain = BriansBrain(int(width/10), int(height/10))
+    life = GameOfLife(int(width/10), int(height/10))
 
-    size_x = width / brain.get_width()
-    size_y = height / brain.get_height()
+    size_x = width / life.get_width()
+    size_y = height / life.get_height()
 
-    num_cells = randint(80, 100)
-    for n in range(num_cells):
-        i, j = randint(int(brain.get_width()/3), int(2*brain.get_width()/3)), randint(int(brain.get_height()/3), int(2*brain.get_height()/3))
-        brain.set_square_state(i, j, 2)
+    num_live_cells = randint(280, 380)
+    for n in range(num_live_cells):
+        i, j = randint(int(life.get_width()/5), int(3*life.get_width()/4)), randint(int(life.get_height()/5), int(3*life.get_height()/4))
+        life.set_square_state(i, j, ON)
 
     while True:
         for event in pygame.event.get():
@@ -82,23 +79,22 @@ def main():
 
         screen.fill(black)
         scaled_x, scaled_y = 0, 0
-        for j in range(brain.get_height()):
-            for i in range(brain.get_width()):
-                scaled_x = (i / brain.get_width()) * width
-                scaled_y = (j / brain.get_height()) * height
+        for j in range(life.get_height()):
+            for i in range(life.get_width()):
+                scaled_x = (i / life.get_width()) * width
+                scaled_y = (j / life.get_height()) * height
 
-                color_n = brain.get_state_new(i, j)
+                state = life.get_state_new(i, j)
 
                 color = black
-                if color_n == 1:
-                    color = grey
-                elif color_n == 2:
+                if state == ON:
                     color = white
 
                 pygame.draw.rect(screen, color, pygame.Rect(scaled_x, scaled_y, size_x, size_y))
 
+        pygame.time.wait(50)
         pygame.display.flip()
-        brain.iterate_state()
+        life.iterate_state()
 
 if __name__ == "__main__":
     main()
