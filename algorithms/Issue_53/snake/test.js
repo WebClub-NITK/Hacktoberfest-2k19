@@ -211,6 +211,18 @@ function main()
         
 
         // Add your termination condition here
+        var snakeArray = [];
+        for(var i = 1; i < snakelength; i++){
+            snakeArray.push({x:posx[i], y:posy[i]});
+        }
+
+        var snakeCrash = snakeArray.find(function(element){
+            return element.x == x && element.y == y;
+        });
+
+        if(snakeCrash != undefined){
+            reload();
+        }
 
     	// The following loop is used draw all the parts of snake onto canvas
     	for(i=0; i<snakelength; i++){
@@ -281,6 +293,18 @@ function main()
 
        
         // Add your termination condition here.
+        var snakeArray = [];
+        for(var i = 1; i < snakelength; i++){
+            snakeArray.push({x:posx[i], y:posy[i]});
+        }
+
+        var snakeCrash = snakeArray.find(function(element){
+            return element.x == x && element.y == y;
+        });
+
+        if(snakeCrash != undefined){
+            reload();
+        }
 
         //If head meets food the following is executed
         if(foodposy==y && foodposx==x){
