@@ -13,14 +13,14 @@ result = case ip0
     when 192 .. 223 then "This is a class C IPv4 address."
     when 224 .. 239 then "This is a class D IPv4 address."
     when 240 .. 255 then "This is a class E IPv4 address."
-    else "Error: IP no valida"
+    else "Error: Invalid IPv4 address."
 end
 
 if  (ip1 < 256 && -1 < ip1 && ip2 < 256 && -1 < ip2 && ip3 < 256 && -1 < ip3)  
     puts result
 else 
-    puts "Error: IP no valida"
+    puts "Error: Invalid IPv4 address."
 end
 
-print "Enter for end"
+print "Enter for end..."
 ip = gets.chomp
