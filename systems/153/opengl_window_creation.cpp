@@ -1,4 +1,5 @@
 #include <iostream>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 //Allows to print erros to console
@@ -6,6 +7,12 @@ static void glfwError(int id, const char* description)
 {
   std::cout << description << std::endl;
 }
+
+//Callback function to change OpenGL viewport to window size
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+    glViewport(0, 0, width, height);
+}  
 
 int main()
 {
@@ -30,6 +37,19 @@ int main()
 
     // Make the window's context current
     glfwMakeContextCurrent(window);
+
+    // Load all OpenGL functions using the glfw loader function
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    {
+        std::cout << "Failed to initialize OpenGL context" << std::endl;
+        return -1;
+    }   
+
+    //Set OpenGL Viewport to match the initial GLFW Window size
+    glViewport(0, 0, 1920, 1080);
+
+    //Set callback function when GLFW window resizes
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);  
 
     // Wait for window to be closed
     while (!glfwWindowShouldClose(window))
