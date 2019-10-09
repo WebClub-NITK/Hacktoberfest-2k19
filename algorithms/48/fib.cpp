@@ -1,17 +1,18 @@
 #include <iostream>
-#include <bits/stdc++.h>
 using namespace std;
 
+//to perform matrix multiplication of 2 2*2 matrices
 void mult(long long A[2][2], long long B[2][2]){
-	long long q,w,e,r;
-	q=A[0][0]*B[0][0]+A[0][1]*B[1][0];
-	w=A[0][0]*B[0][1]+A[0][1]*B[1][1];
-	e=A[1][0]*B[0][0]+A[1][1]*B[1][0];
-	r=A[1][0]*B[0][1]+A[1][1]*B[1][1];
-	A[0][0]=q;
-	A[0][1]=w;
-	A[1][0]=e;
-	A[1][1]=r;
+	//make variables for the terms in the answer matrix
+	long long ans00, ans01, ans10, ans11;
+	ans00=A[0][0]*B[0][0]+A[0][1]*B[1][0];
+	ans01=A[0][0]*B[0][1]+A[0][1]*B[1][1];
+	ans10=A[1][0]*B[0][0]+A[1][1]*B[1][0];
+	ans11=A[1][0]*B[0][1]+A[1][1]*B[1][1];
+	A[0][0]=ans00;
+	A[0][1]=ans01;
+	A[1][0]=ans10;
+	A[1][1]=ans11;
 }
 
 void matrix_pow(long long A[2][2], int n){
