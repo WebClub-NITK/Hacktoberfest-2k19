@@ -1,10 +1,20 @@
+True = true
 print "Enter the IPv4 address: "
 ip = gets.chomp.split(".")
 
-ip0 = Integer(ip.at(0))
-ip1 = Integer(ip.at(1))
-ip2 = Integer(ip.at(2))
-ip3 = Integer(ip.at(3))
+while True
+    begin
+        ip0 = Integer(ip.at(0))
+        ip1 = Integer(ip.at(1))
+        ip2 = Integer(ip.at(2))
+        ip3 = Integer(ip.at(3))
+        True = nil
+    rescue
+        puts "Error: Invalid IPv4 address (Must have just numbers)."
+        print "Enter the IPv4 address: "
+        ip = gets.chomp.split(".")
+    end
+end
 
 result = case ip0
     when 001 .. 126 then "This is a class A IPv4 address."
@@ -19,7 +29,7 @@ end
 if  (ip1 < 256 && -1 < ip1 && ip2 < 256 && -1 < ip2 && ip3 < 256 && -1 < ip3)  
     puts result
 else 
-    puts "Error: Invalid IPv4 address."
+    puts "Error: Invalid IPv4 address (It can't be bigger than 255 and smaller than 0)."
 end
 
 print "Enter for end..."
