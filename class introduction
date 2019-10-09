@@ -1,0 +1,41 @@
+When calculating hosts' IP addresses, 2 IP addresses are decreased because they cannot be assigned to hosts, i.e. the first IP of a network is network number and the last IP is reserved for Broadcast IP.
+
+Class A Address
+The first bit of the first octet is always set to 0 (zero). Thus the first octet ranges from 1 – 127, i.e.
+
+Class A Addresses
+Class A addresses only include IP starting from 1.x.x.x to 126.x.x.x only. The IP range 127.x.x.x is reserved for loopback IP addresses.
+
+The default subnet mask for Class A IP address is 255.0.0.0 which implies that Class A addressing can have 126 networks (27-2) and 16777214 hosts (224-2).
+
+Class A IP address format is thus: 0NNNNNNN.HHHHHHHH.HHHHHHHH.HHHHHHHH
+
+Class B Address
+An IP address which belongs to class B has the first two bits in the first octet set to 10, i.e.
+
+Class B Addresses
+Class B IP Addresses range from 128.0.x.x to 191.255.x.x. The default subnet mask for Class B is 255.255.x.x.
+
+Class B has 16384 (214) Network addresses and 65534 (216-2) Host addresses.
+
+Class B IP address format is: 10NNNNNN.NNNNNNNN.HHHHHHHH.HHHHHHHH
+
+Class C Address
+The first octet of Class C IP address has its first 3 bits set to 110, that is −
+
+Class C Addresses
+Class C IP addresses range from 192.0.0.x to 223.255.255.x. The default subnet mask for Class C is 255.255.255.x.
+
+Class C gives 2097152 (221) Network addresses and 254 (28-2) Host addresses.
+
+Class C IP address format is: 110NNNNN.NNNNNNNN.NNNNNNNN.HHHHHHHH
+
+Class D Address
+Very first four bits of the first octet in Class D IP addresses are set to 1110, giving a range of −
+
+Class D Addresses
+Class D has IP address range from 224.0.0.0 to 239.255.255.255. Class D is reserved for Multicasting. In multicasting data is not destined for a particular host, that is why there is no need to extract host address from the IP address, and Class D does not have any subnet mask.
+
+Class E Address
+This IP Class is reserved for experimental purposes only for R&D or Study. IP addresses in this class ranges from 240.0.0.0 to 255.255.255.254. Like Class D, this class too is not equipped with any subnet mask.
+
