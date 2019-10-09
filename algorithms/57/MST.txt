@@ -1,0 +1,10 @@
+Resolves Issue #57
+Preferred Language: Python
+
+Description:
+Python code to find the minimum spanning tree of an undirected weighted graph using Kruskal's Algorithm.
+
+To run the code:
+python3 MST.py
+
+Output Screenshot: MST.png

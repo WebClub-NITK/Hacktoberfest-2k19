@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function validateForm() {
+           var check;
+           check=emailValidate();
+           check=phoneNumberValidate();
+           return check; 
+        }
+        function emailValidate(){
+             if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.forms["myForm"]["femail"].value))) {
+                alert("Email must be filled out");
+                return false;
+            }
+        }
+        function phoneNumberValidate(){
+            var phoneno = /^\+?([0-9]{2})\)?([0-9]{10})$/;
+            if (!(document.forms["myForm"]["fphone"].value).match(phoneno)) {
+                alert("Incorrect Format of Phone Number.");
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="myForm" action="/result.php" onsubmit="return validateForm()" method="post">
+        Email: <input name="femail"><br>
+        Phone Number: <input name="fphone"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <hr>
+    Validation using JS can be done using Regex expressions. You would notice that once an email of form 
+    something@somedomain is filled and a number of +913333333333 is filled, it redirects you to a <i>result.php</i> script. 
+    This script does not exist with the project, but nevertheless it is left because all HTML forms generally do some kind of POST request, either
+    using traditional HTML (done here), or using AJAX (wouldnt refresh on sending).
+    <br>
+    <br>
+    Made by Nirmal Khedkar
+</body>
+</html>
