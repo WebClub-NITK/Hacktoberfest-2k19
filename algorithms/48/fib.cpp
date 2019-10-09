@@ -16,10 +16,11 @@ void mult(long long A[2][2], long long B[2][2]){
 }
 
 void matrix_pow(long long A[2][2], int n){
+	if(n<2)
+		return;
 	long long M[2][2]={{1,1},{1,0}};
-	for(int i=2;i<n;i++){
-		mult(A, M);
-	}
+	mult(A, M);
+	matrix_pow(A,n-1);
 	return;
 }
 
@@ -30,7 +31,7 @@ long long fib(int n) {
     if(n == 1) return 1;
     long long A[2][2]={{1,1},{1,0}};
     matrix_pow(A, n);
-    return A[0][0];
+    return A[1][0];
 }
 
 int main() {
