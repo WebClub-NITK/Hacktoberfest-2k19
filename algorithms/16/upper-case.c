@@ -1,15 +1,22 @@
-#include<stdio.h>
-#include<string.h>
-int main()
+#include <stdio.h>
+#include <ctype.h>
+
+int main(int argc, char *argv[])
 {
-	char s[500];
-	gets(s);
-	int len,i;
-	len=strlen(s);
-	for(i=0;i<len;i++)
-	{
-	if(s[i]>=97 && s[i]<=122)
-		s[i]=65+(s[i]-97);
-	}
-	printf("%s",s);
+  char* str = argv[1];
+  int i = 0;
+
+  while (str[i] != '\0')
+  {
+    if (isalpha(str[i]) && islower(str[i]))
+    {
+      printf("%c", toupper(str[i]));
+    }
+    else
+    {
+      printf("%c", str[i]);
+    }
+    i++;
+  }
+  printf("\n");
 }
