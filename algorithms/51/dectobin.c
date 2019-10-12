@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 void main()
-{ int n;
+{ int n,int i=0;
 int b[50];
 printf("Enter the number");
 scanf("%d",&n);
