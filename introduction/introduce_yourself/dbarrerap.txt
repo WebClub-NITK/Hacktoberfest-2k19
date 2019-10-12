@@ -1,0 +1,5 @@
+Name: David E. Barrera
+Year: 4th Year
+Branch: Computer Science at UEES (Ecuador)
+Area of Interest: Software Development, Data Science
+Favorite Languages: Python, PHP

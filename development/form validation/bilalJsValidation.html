@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>Feedback</title>
+  </head>
+  <body>
+    <h2>Site feedback</h2>
+    <form
+      action="index.php"
+      onsubmit="return validateForm(event)"
+      method="POST"
+    >
+      First name:
+      <input type="text" />
+      Last name:
+      <input type="text" />
+      <br /><br />
+      Phone number:
+      <input type="text" name="phone" />
+      <br />
+      Mail id:
+      <input type="email" name="email" id="email" />
+      <br />
+      Comments:
+      <input type="text" />
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+    <hr />
+    Validation using JS can be done using Regex expressions. You would notice
+    that once an email of form something@somedomain is filled and a number of
+    +913333333333 is filled, it redirects you to a <i>result.php</i> script.
+    This script does not exist with the project, but nevertheless it is left
+    because all HTML forms generally do some kind of POST request, either using
+    traditional HTML (done here), or using AJAX (wouldnt refresh on sending).
+    <br />
+    <br />
+    Made by Muhammad Bilal
+  </body>
+
+  <script>
+    function validateForm(e) {
+      let check;
+      check = validEmail();
+      check = validPhoneNumber();
+      return check;
+    }
+    function validEmail() {
+      let email = document.getElementsByName("email")[0].value;
+      console.log(email);
+      let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (!re.test(email)) {
+        alert("invalid email");
+        return false;
+      }
+    }
+
+    function validPhoneNumber() {
+      let phone = document.getElementsByName("phone")[0].value;
+      let re = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$/;
+      if (!re.test(phone)) {
+        alert("invalid phone number");
+        return false;
+      }
+    }
+  </script>
+</html>
