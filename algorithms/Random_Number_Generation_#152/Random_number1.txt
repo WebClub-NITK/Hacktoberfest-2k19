@@ -1,0 +1,12 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+  int j;
+  for(j=0;j<100000;j++)
+ {
+   int num=rand();
+   printf("%d\n",num);
+ }
+  return 0;
+}
