@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600&display=swap" rel="stylesheet">
+    <title>Paragraph Differences App</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            background: #fff;
+        }
+
+        .center-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            height: 100vh;
+            font-size: 30px;
+        }
+
+        .original-text-containers {
+            border: 6px solid #22a6b3;
+            width: 80%;
+            height: 43%;
+            padding: 20px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-content: center;
+        }
+
+        .paragraph-1{
+            /* border: 1px solid blue; */
+            height: 90%;
+            width: 99%;
+            margin-right: 5px;
+        }
+
+        .paragraph-2{
+            /* border: 1px solid rebeccapurple; */
+            height: 90%;
+            width: 99%;
+            margin-left: 5px;
+        }
+
+        textarea {
+            padding: 10px;
+            font-size: 30px;
+        }
+
+        .show-difference-container {
+            border: 6px solid #f0932b;
+            width: 80%;
+            height: 33%;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="center-container">
+        <div class="original-text-containers">
+            <div>
+                Paragraph 1
+                <textarea class="paragraph-1" name="" id="para1" cols="40" rows="5"></textarea>
+            </div>
+
+            <div>
+                Paragraph 2
+                <textarea class="paragraph-2" name="" id="para1" cols="40" rows="5"></textarea>
+            </div>
+        </div>
+
+        <div class="show-difference-container">
+            show difference text container
+        </div>
+
+    </div>
+    <script src="differences.js"></script>
+</body>
+</html>
