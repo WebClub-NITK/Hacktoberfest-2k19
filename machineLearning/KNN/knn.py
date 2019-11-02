@@ -8,13 +8,14 @@ class
 
 """ 
 import numpy as np
-
+import math
+import operator
 def distance(p1,p2):
-    """ 
-    Returns the eucledian distance between two points p1 and p2.
-    """
-    #TODO
-
+    distance = 0
+    length = p1.shape[0]
+    for x in range(length):
+        distance += np.square(p1[x] - p2[x])
+    return np.sqrt(distance)  
 
 
 def majority_votes(votes):
@@ -24,8 +25,11 @@ def majority_votes(votes):
     Constructs the count of votes as a dictionary with keys as the votes and 
     values as the counts of the votes. You may use library functions like mode in scipy.stats.mstats or write your own code.
     """
-    #TODO
-
+    votes2 = {}
+    for x in range(len(votes)):
+        votes2[x] = votes[x]
+    sortvotes = sorted(votes2.items(), key=operator.itemgetter(1), reverse=True)
+    return(sortvotes[0][0])
 
 def find_nearest_neighbours(p, points, k=5):
     """)
@@ -38,8 +42,17 @@ def find_nearest_neighbours(p, points, k=5):
     #   find the distance between p and every other point
     # sort the distances and return thek nearest points
 
-    #TODO
-    
+    distances = {}
+    sort = {}
+    length = p.shape[0] 
+    for x in range(len(points)):
+        dist = distance(p, points[x])
+        distances[x] = dist
+    sortdist = sorted(distances.items(), key=operator.itemgetter(1))
+    neighbors = []
+    for x in range(k):
+        neighbors.append(sortdist[x][0])
+    return neighbors    
 
 #classes to which the k points belong is given by outcomes
 def knn_predict(p, points, outcomes, k=5):
@@ -49,7 +62,22 @@ def knn_predict(p, points, outcomes, k=5):
         points : List of predictors
         outcomes : List Containing the possible outcomes/targets.
     """
-    #TODO
+    Votes = {}
+    temp = len(np.unique(outcomes))
+    for i in range(temp):
+        Votes[i]=0
+    neighbors = find_nearest_neighbours(p,points)
+    for x in range(len(neighbors)):
+        response = outcomes[neighbors[x]]#label end
+        if response in Votes:
+            Votes[np.int(response)] += 1
+        else:
+            Votes[np.int(response)] = 1
+    Vote = list(Votes.values())
+    sortvotes = majority_votes(Vote)
+    return sortvotes
+
+
 
 
 
@@ -76,11 +104,11 @@ my_predictions = np.array([knn_predict(p, predictors, outcomes, k=5) for p in pr
 
 # Test and compare our model
 
-np.mean(my_predictions == sk_predictions)
+print(np.mean(my_predictions == sk_predictions))
 
-np.mean(my_predictions == outcomes)
+print(np.mean(my_predictions == outcomes))
 
-np.mean(sk_predictions == outcomes)
+print(np.mean(sk_predictions == outcomes))
 
 
 
